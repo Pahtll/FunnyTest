@@ -31,7 +31,7 @@ public class Triangle(
 			throw new ArgumentException("Invalid triangle sides");
 		
 		if (IsTriangleSquared())
-			return Sides.Aggregate((current, side) => current * side) / 2;
+			return Sides.Min() * (Sides.Sum() - (Sides.Max() + Sides.Min())) / 2;
 		
 		var semiPerimeter = Sides.Sum() / 2;
 		var area = Sides.Aggregate(semiPerimeter, (current, side) => 
